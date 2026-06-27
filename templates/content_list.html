@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}{{ content_label }} -- {{ topic.name }} -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<nav class="breadcrumbs container" aria-label="Breadcrumb">
+  <a href="{{ url_for('home') }}">Home</a> <span>/</span>
+  <a href="{{ url_for('subjects') }}">Subjects</a> <span>/</span>
+  <a href="{{ url_for('subject_detail', subject_slug=subject_slug) }}">{{ subject.name }}</a> <span>/</span>
+  <a href="{{ url_for('topic_detail', subject_slug=subject_slug, topic_slug=topic_slug) }}">{{ topic.name }}</a> <span>/</span>
+  <span>{{ content_label }}</span>
+</nav>
+
+<section class="container section">
+  <h1>{{ content_label }}</h1>
+  <p class="muted">{{ topic.name }}</p>
+
+  {% if items %}
+  <div class="card-grid four">
+    {% for item in items %}
+    <a class="card"
+       href="{{ url_for('content_item',
+                        subject_slug=subject_slug,
+                        topic_slug=topic_slug,
+                        content_slug=content_slug,
+                        item_slug=item.slug) }}">
+      <h4>{{ item.title }}</h4>
+      <p class="muted small">{{ item.blurb or (item.duration if item.duration else '') }}</p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="muted">Nothing here yet -- check back soon.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}All Subjects -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<nav class="breadcrumbs container" aria-label="Breadcrumb">
+  <a href="{{ url_for('home') }}">Home</a> <span>/</span> <span>Subjects</span>
+</nav>
+
+<section class="container section">
+  <div class="section-intro">
+    <h1>All STEM Subjects</h1>
+    <p class="lead muted">Explore our range of STEM subjects and find the right help to achieve your academic goals.</p>
+  </div>
+
+  <div class="card-grid five">
+    {% for s in subjects %}
+    <a class="card subject-card" href="{{ url_for('subject_detail', subject_slug=s.slug) }}">
+      <div class="card-icon">{% include 'includes/icons/' + s.icon + '.html' ignore missing %}</div>
+      <h3>{{ s.name }}</h3>
+      <p class="muted">{{ s.blurb }}</p>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="feature-row">
+    <div class="feature">Expert Tutors</div>
+    <div class="feature">Customized Learning</div>
+    <div class="feature">Flexible Scheduling</div>
+    <div class="feature">Secure &amp; Trusted</div>
+  </div>
+</section>
+{% endblock %}

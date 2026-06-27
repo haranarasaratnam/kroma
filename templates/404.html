@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Not Found -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<section class="container section center">
+  <h1>404</h1>
+  <p class="lead muted">That page does not exist.</p>
+  <a class="btn btn-primary" href="{{ url_for('home') }}">Back to Home</a>
+</section>
+{% endblock %}

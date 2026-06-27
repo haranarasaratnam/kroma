@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{{ item.title }} -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<nav class="breadcrumbs container" aria-label="Breadcrumb">
+  <a href="{{ url_for('home') }}">Home</a> <span>/</span>
+  <a href="{{ url_for('subjects') }}">Subjects</a> <span>/</span>
+  <a href="{{ url_for('subject_detail', subject_slug=subject_slug) }}">{{ subject.name }}</a> <span>/</span>
+  <a href="{{ url_for('topic_detail', subject_slug=subject_slug, topic_slug=topic_slug) }}">{{ topic.name }}</a> <span>/</span>
+  <a href="{{ url_for('content_list', subject_slug=subject_slug, topic_slug=topic_slug, content_slug=content_slug) }}">Study Guides</a> <span>/</span>
+  <span>{{ item.title }}</span>
+</nav>
+
+<div class="container layout-with-sidebar">
+  <aside class="sidebar">
+    <h4>Table of Contents</h4>
+    <ul class="side-nav">
+      <li><a href="#top" class="active">Overview</a></li>
+      <li><a href="#key-concepts">Key Concepts</a></li>
+      <li><a href="#important-formulas">Important Formulas</a></li>
+      <li><a href="#transformation-rules">Transformation Rules</a></li>
+    </ul>
+  </aside>
+
+  <article class="study-guide">
+    <div class="article-header">
+      <span class="pill">{{ topic.name|upper }}</span>
+      <div class="article-actions">
+        <button class="btn-ghost" type="button">Save</button>
+        <button class="btn-ghost" type="button">Share</button>
+      </div>
+    </div>
+    <h1 id="top">{{ item.title }} Study Guide</h1>
+    <p class="lead muted">{{ item.blurb }}</p>
+
+    <div class="prose">
+      {{ item.body|markdown|safe }}
+    </div>
+  </article>
+</div>
+{% endblock %}

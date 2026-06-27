@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}{{ subject.name }} -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<nav class="breadcrumbs container" aria-label="Breadcrumb">
+  <a href="{{ url_for('home') }}">Home</a> <span>/</span>
+  <a href="{{ url_for('subjects') }}">Subjects</a> <span>/</span>
+  <span>{{ subject.name }}</span>
+</nav>
+
+<section class="container section">
+  <h1>{{ subject.name }}</h1>
+  <p class="lead muted">{{ subject.blurb }}</p>
+
+  <h2 class="section-title">Topics</h2>
+  {% if topics %}
+  <div class="card-grid four">
+    {% for t in topics %}
+    <a class="card" href="{{ url_for('topic_detail', subject_slug=subject_slug, topic_slug=t.slug) }}">
+      <h3>{{ t.name }}</h3>
+      <p class="muted small">{{ t.intro|truncate(120) }}</p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="muted">No topics yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ item.title }} -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<nav class="breadcrumbs container" aria-label="Breadcrumb">
+  <a href="{{ url_for('home') }}">Home</a> <span>/</span>
+  <a href="{{ url_for('subjects') }}">Subjects</a> <span>/</span>
+  <a href="{{ url_for('subject_detail', subject_slug=subject_slug) }}">{{ subject.name }}</a> <span>/</span>
+  <a href="{{ url_for('topic_detail', subject_slug=subject_slug, topic_slug=topic_slug) }}">{{ topic.name }}</a> <span>/</span>
+  <span>{{ item.title }}</span>
+</nav>
+
+<section class="container section">
+  <h1>{{ item.title }}</h1>
+  <p class="muted">{{ item.duration }}</p>
+  <div class="video-frame">
+    <iframe src="{{ item.embed_url }}" title="{{ item.title }}" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
+</section>
+{% endblock %}

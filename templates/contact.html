@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Contact -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<section class="container section">
+  <h1>Contact</h1>
+  <p class="lead muted">Have a question, request, or want to book a tutoring session? Reach out below.</p>
+  <form class="stacked-form" action="#" method="post">
+    <label>Name<input type="text" name="name" required></label>
+    <label>Email<input type="email" name="email" required></label>
+    <label>Message<textarea name="message" rows="6" required></textarea></label>
+    <button class="btn btn-primary" type="submit">Send</button>
+  </form>
+</section>
+{% endblock %}

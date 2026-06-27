@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Search -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<section class="container section">
+  <h1>Search</h1>
+  <form class="site-search standalone" action="{{ url_for('search') }}" method="get" role="search">
+    <input type="search" name="q" value="{{ query }}" placeholder="Search subjects, topics, or resources..." aria-label="Search">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+
+  {% if query %}
+  <p class="muted">{{ results|length }} result(s) for &ldquo;{{ query }}&rdquo;</p>
+  <ul class="search-results">
+    {% for r in results %}
+    <li>
+      <span class="pill">{{ r.type }}</span>
+      <a href="{{ r.url }}">{{ r.title }}</a>
+    </li>
+    {% else %}
+    <li class="muted">No results.</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endblock %}

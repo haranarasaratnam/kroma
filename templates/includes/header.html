@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ url_for('home') }}">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="16" cy="16" r="13"/>
+          <path d="M10 22 L10 10 L16 16 L22 10 L22 22"/>
+        </svg>
+      </span>
+      <span class="brand-text">{{ SITE_NAME }}</span>
+    </a>
+    {% include 'includes/nav.html' %}
+    <form class="site-search" action="{{ url_for('search') }}" method="get" role="search">
+      <input type="search" name="q" placeholder="Search subjects, topics, or resources..." aria-label="Search">
+    </form>
+    <a class="account-btn" href="#" aria-label="Account">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+      </svg>
+    </a>
+  </div>
+</header>

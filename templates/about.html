@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}About -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<section class="container section">
+  <h1>About {{ SITE_NAME }}</h1>
+  <p class="lead muted">{{ DESCRIPTION }}</p>
+  <p>
+    {{ SITE_NAME }} is a personal STEM tutoring reference platform built to support
+    high-school students learning math, physics, chemistry, biology, and computer
+    science. It collects study guides, practice problems, video tutorials, and
+    interactive tools in one place so live tutoring sessions can move quickly and
+    students can keep learning between sessions.
+  </p>
+</section>
+{% endblock %}

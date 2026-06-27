@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ topic.name }} -- {{ subject.name }} -- {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<nav class="breadcrumbs container" aria-label="Breadcrumb">
+  <a href="{{ url_for('home') }}">Home</a> <span>/</span>
+  <a href="{{ url_for('subjects') }}">Subjects</a> <span>/</span>
+  <a href="{{ url_for('subject_detail', subject_slug=subject_slug) }}">{{ subject.name }}</a> <span>/</span>
+  <span>{{ topic.name }}</span>
+</nav>
+
+<div class="container layout-with-sidebar">
+  <aside class="sidebar">
+    <h4>In This Topic</h4>
+    <ul class="side-nav">
+      <li><a href="#overview" class="active">Overview</a></li>
+      {% for sec in sections %}
+        {% if sec.entries %}
+        <li><a href="#{{ sec.slug }}">{{ sec.label }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <section class="topic-content">
+    <h1 id="overview">{{ topic.name }}</h1>
+    <p class="lead muted">{{ topic.intro }}</p>
+
+    {% for sec in sections %}
+      {% if sec.entries %}
+      <section class="topic-section" id="{{ sec.slug }}">
+        <div class="section-header">
+          <h2>{{ sec.label }}</h2>
+          <a class="view-all"
+             href="{{ url_for('content_list',
+                              subject_slug=subject_slug,
+                              topic_slug=topic_slug,
+                              content_slug=sec.slug) }}">View all</a>
+        </div>
+        <div class="card-grid four">
+          {% for item in sec.entries[:4] %}
+          <a class="card"
+             href="{{ url_for('content_item',
+                              subject_slug=subject_slug,
+                              topic_slug=topic_slug,
+                              content_slug=sec.slug,
+                              item_slug=item.slug) }}">
+            <h4>{{ item.title }}</h4>
+            <p class="muted small">{{ item.blurb or (item.duration if item.duration else '') }}</p>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}
