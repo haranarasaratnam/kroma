@@ -204,7 +204,10 @@ SUBJECTS = {
         "topics": {
             "mechanics": {
                 "name": "Mechanics",
-                "intro": "Motion, forces, energy, and Newton's laws.",
+                "intro": (
+                    "Vectors, kinematics, forces and Newton's laws, gravitation, "
+                    "linear momentum and impacts, and rotational motion."
+                ),
                 "study_guides": {
                     "newtons-laws-of-motion": {
                         "title": "Newton's Laws of Motion",
@@ -213,6 +216,70 @@ SUBJECTS = {
                     },
                 },
                 "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "energy-and-oscillations": {
+                "name": "Energy & Oscillations",
+                "intro": (
+                    "Work, power, kinetic and potential energy, conservation of "
+                    "energy, and simple harmonic motion of springs and pendulums."
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "waves-and-sound": {
+                "name": "Waves & Sound",
+                "intro": (
+                    "Pulses, wave motion, types of waves, standing waves and "
+                    "resonance, sound, and the Doppler effect."
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "fluids": {
+                "name": "Fluids",
+                "intro": (
+                    "Static fluids, Pascal's principle, buoyancy and Archimedes' "
+                    "principle, fluids in motion, and Bernoulli's equation. (AP Physics 2)"
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "thermodynamics": {
+                "name": "Thermodynamics",
+                "intro": (
+                    "Temperature, the ideal gas law, kinetic-molecular theory, the "
+                    "first and second laws of thermodynamics, and heat transfer. (AP Physics 2)"
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "electricity-and-circuits": {
+                "name": "Electricity & Circuits",
+                "intro": (
+                    "Electric charges, Coulomb's law, electric fields and potential, "
+                    "capacitance, current, resistance, and series and parallel circuits."
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "magnetism-and-electromagnetism": {
+                "name": "Magnetism & Electromagnetism",
+                "intro": (
+                    "Magnetic fields and forces, magnetic effects of currents, induced "
+                    "EMF, and Faraday's law of induction. (AP Physics 2)"
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "optics": {
+                "name": "Optics",
+                "intro": (
+                    "Reflection, refraction, interference, diffraction, and image "
+                    "formation in plane mirrors, curved mirrors, and lenses. (AP Physics 2)"
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
+            },
+            "modern-physics": {
+                "name": "Modern Physics",
+                "intro": (
+                    "Photoelectric and Compton effects, matter waves, atomic models, "
+                    "special relativity, and nuclear structure, fission, and fusion. (AP Physics 2)"
+                ),
+                "study_guides": {}, "practice_problems": {}, "videos": {}, "tools": {},
             },
         },
     },
