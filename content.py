@@ -28,58 +28,324 @@ SUBJECTS = {
                     "functions-and-their-properties": {
                         "title": "Functions and Their Properties",
                         "blurb": (
-                            "Explore domain, range, compositions, inverses, and "
-                            "function operations."
+                            "A comprehensive guide to understanding functions and "
+                            "their transformations for AP Precalculus."
                         ),
-                        "body": (
-                            "## 1. Key Concepts\n\n"
-                            "Functions describe a relationship between inputs (x) "
-                            "and outputs (y). Transformations change the position, "
-                            "size, or orientation of a function's graph.\n\n"
-                            "- **Function**: a rule that assigns each input exactly one output.\n"
-                            "- **Domain**: the set of all possible input values (x).\n"
-                            "- **Range**: the set of all possible output values (y).\n\n"
-                            "## 2. Important Formulas\n\n"
-                            "- Linear: f(x) = mx + b\n"
-                            "- Quadratic: f(x) = ax^2 + bx + c\n"
-                            "- Absolute value: f(x) = a|x - h| + k\n\n"
-                            "## 3. Transformation Rules\n\n"
-                            "- Vertical shift up: g(x) = f(x) + k\n"
-                            "- Vertical shift down: g(x) = f(x) - k\n"
-                            "- Horizontal shift right: g(x) = f(x - h)\n"
-                        ),
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "Functions describe a relationship between inputs (x) "
+                                            "and outputs (y). Transformations change the position, "
+                                            "size, or orientation of a function's graph."
+                                        ),
+                                        "entries": [
+                                            {"term": "Function", "definition": "A rule that assigns each input exactly one output."},
+                                            {"term": "Domain", "definition": "The set of all possible input values (x)."},
+                                            {"term": "Range", "definition": "The set of all possible output values (y)."},
+                                            {"term": "Transformations", "definition": "Shifts, stretches, compressions, and reflections of a parent function."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Linear Function", "formula": "f(x) = mx + b", "note": "m = slope, b = y-intercept"},
+                                            {"title": "Quadratic Function", "formula": "f(x) = ax² + bx + c", "note": "a ≠ 0"},
+                                            {"title": "Absolute Value Function", "formula": "f(x) = a|x − h| + k", "note": "Vertex: (h, k)"},
+                                            {"title": "Specific to Transformations", "formula": "g(x) = a·f(b(x − h)) + k", "note": "a, b ≠ 0"},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "transformation-rules",
+                                "title": "Transformation Rules",
+                                "icon": "swap",
+                                "blocks": [
+                                    {
+                                        "type": "table",
+                                        "headers": ["Transformation", "Form of g(x)", "Effect on Graph", "Example"],
+                                        "rows": [
+                                            ["Vertical Shift Up", "g(x) = f(x) + k", "Shift up k units", "g(x) = f(x) + 3"],
+                                            ["Vertical Shift Down", "g(x) = f(x) − k", "Shift down k units", "g(x) = f(x) − 2"],
+                                            ["Horizontal Shift Right", "g(x) = f(x − h)", "Shift right h units", "g(x) = f(x − 4)"],
+                                            ["Horizontal Shift Left", "g(x) = f(x + h)", "Shift left h units", "g(x) = f(x + 1)"],
+                                            ["Vertical Stretch", "g(x) = a·f(x), |a| > 1", "Stretch vertically by factor a", "g(x) = 2f(x)"],
+                                            ["Reflection (x-axis)", "g(x) = −f(x)", "Flip across x-axis", "g(x) = −f(x)"],
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "graphing-steps",
+                                "title": "Graphing Steps",
+                                "icon": "chart",
+                                "blocks": [
+                                    {
+                                        "type": "steps",
+                                        "entries": [
+                                            {"title": "Identify the parent function", "detail": "Recognize whether the base is linear, quadratic, absolute value, etc."},
+                                            {"title": "Apply horizontal shifts and reflections", "detail": "Work inside the parentheses first: (x − h) shifts right, −x reflects across the y-axis."},
+                                            {"title": "Apply vertical stretches and compressions", "detail": "Multiply outputs by a; |a| > 1 stretches, 0 < |a| < 1 compresses."},
+                                            {"title": "Apply vertical shifts last", "detail": "Add or subtract k to move the entire graph up or down."},
+                                            {"title": "Label key points", "detail": "Plot the vertex or intercepts and at least two more points for accuracy."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "examples",
+                                "title": "Examples",
+                                "icon": "book",
+                                "blocks": [
+                                    {
+                                        "type": "examples",
+                                        "entries": [
+                                            {
+                                                "title": "Evaluating a function",
+                                                "prompt": "If f(x) = 2x + 3, find f(5).",
+                                                "solution": "f(5) = 2(5) + 3 = 13.",
+                                            },
+                                            {
+                                                "title": "Identifying transformations",
+                                                "prompt": "Describe how g(x) = (x − 2)² + 1 transforms the parent f(x) = x².",
+                                                "solution": "Shift right 2 units, then up 1 unit.",
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "practice-problems",
+                                "title": "Practice Problems",
+                                "icon": "pencil",
+                                "blocks": [
+                                    {
+                                        "type": "practice",
+                                        "entries": [
+                                            {"question": "State the domain of f(x) = 1 / (x − 4).", "solution": "All real x except x = 4."},
+                                            {"question": "Given f(x) = x², write the equation for the graph shifted left 3 and down 5.", "solution": "g(x) = (x + 3)² − 5."},
+                                            {"question": "Find the range of f(x) = |x| + 2.", "solution": "[2, ∞)."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "common-mistakes",
+                                "title": "Common Mistakes",
+                                "icon": "alert",
+                                "blocks": [
+                                    {
+                                        "type": "mistakes",
+                                        "entries": [
+                                            {"mistake": "Confusing horizontal shift direction", "fix": "f(x − h) shifts the graph to the right, not the left."},
+                                            {"mistake": "Applying transformations in the wrong order", "fix": "Inside-the-parentheses changes happen first, vertical shifts last."},
+                                            {"mistake": "Forgetting domain restrictions", "fix": "Watch for division by zero and even roots of negatives."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "quick-review",
+                                "title": "Quick Review",
+                                "icon": "clipboard",
+                                "blocks": [
+                                    {
+                                        "type": "review",
+                                        "entries": [
+                                            "A function maps each input to exactly one output.",
+                                            "Transformations stack: inside-then-outside, horizontal-then-vertical.",
+                                            "Memorize parent-function shapes: line, parabola, |x|, √x, 1/x.",
+                                            "Always verify domain and range after transforming.",
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     "polynomial-and-rational-functions": {
                         "title": "Polynomial and Rational Functions",
                         "blurb": (
                             "Analyze polynomial and rational functions: zeros, "
-                            "rational and asymptotic behavior."
+                            "end behavior, and asymptotes."
                         ),
-                        "body": (
-                            "## Overview\n\n"
-                            "Polynomial functions are sums of power terms. Rational "
-                            "functions are ratios of polynomials and may have vertical, "
-                            "horizontal, or slant asymptotes.\n"
-                        ),
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "Polynomial functions are sums of power terms. Rational "
+                                            "functions are ratios of polynomials and may have vertical, "
+                                            "horizontal, or slant asymptotes."
+                                        ),
+                                        "entries": [
+                                            {"term": "Polynomial", "definition": "A sum of terms of the form a·xⁿ with non-negative integer exponents."},
+                                            {"term": "Degree", "definition": "The largest exponent; controls end behavior and the maximum number of real zeros."},
+                                            {"term": "Rational function", "definition": "A ratio p(x)/q(x) of polynomials with q(x) ≠ 0."},
+                                            {"term": "Asymptote", "definition": "A line the graph approaches but does not cross (vertical, horizontal, or slant)."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Standard Polynomial", "formula": "f(x) = aₙxⁿ + ... + a₁x + a₀", "note": "Degree n, leading coefficient aₙ"},
+                                            {"title": "Factored Form", "formula": "f(x) = a(x − r₁)(x − r₂)...", "note": "rᵢ are the real zeros"},
+                                            {"title": "Rational Function", "formula": "f(x) = p(x) / q(x)", "note": "Vertical asymptote when q(x) = 0"},
+                                            {"title": "Horizontal Asymptote", "formula": "y = aₙ / bₙ (deg p = deg q)", "note": "y = 0 if deg p < deg q"},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "common-mistakes",
+                                "title": "Common Mistakes",
+                                "icon": "alert",
+                                "blocks": [
+                                    {
+                                        "type": "mistakes",
+                                        "entries": [
+                                            {"mistake": "Calling every zero of q(x) a vertical asymptote", "fix": "If the same factor appears in p(x), it cancels to a hole, not an asymptote."},
+                                            {"mistake": "Assuming end behavior matches the constant term", "fix": "End behavior is set by the leading term, not the constant."},
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     "exponential-and-logarithmic-functions": {
                         "title": "Exponential and Logarithmic Functions",
-                        "blurb": "Understand exponential growth and decay logs and their properties.",
-                        "body": (
-                            "## Overview\n\n"
-                            "Exponential functions model growth and decay. Logarithms "
-                            "are their inverses and let us solve equations where the "
-                            "unknown is in the exponent.\n"
-                        ),
+                        "blurb": "Understand exponential growth and decay, logs, and their inverse relationship.",
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "Exponential functions model growth and decay. Logarithms "
+                                            "are their inverses and let us solve equations where the "
+                                            "unknown is in the exponent."
+                                        ),
+                                        "entries": [
+                                            {"term": "Exponential function", "definition": "f(x) = a·bˣ with b > 0, b ≠ 1."},
+                                            {"term": "Logarithm", "definition": "log_b(y) = x means bˣ = y."},
+                                            {"term": "Natural log", "definition": "ln(x) = log_e(x) with e ≈ 2.71828."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Continuous Growth", "formula": "A = A₀ eᵏᵗ", "note": "k > 0 growth, k < 0 decay"},
+                                            {"title": "Compound Interest", "formula": "A = P(1 + r/n)ⁿᵗ", "note": "n compoundings per year"},
+                                            {"title": "Change of Base", "formula": "log_b(x) = ln(x) / ln(b)", "note": "Convert between log bases"},
+                                            {"title": "Log Rules", "formula": "log(xy) = log x + log y", "note": "Also: log(xⁿ) = n·log x"},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "quick-review",
+                                "title": "Quick Review",
+                                "icon": "clipboard",
+                                "blocks": [
+                                    {
+                                        "type": "review",
+                                        "entries": [
+                                            "Exponentials and logs are inverses; their graphs reflect over y = x.",
+                                            "Always check the domain of a log: argument must be positive.",
+                                            "Use change-of-base to evaluate any log with a calculator.",
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     "trigonometric-functions": {
                         "title": "Trigonometric Functions",
-                        "blurb": "Study angles, unit circle, identities, and graphs of trig functions.",
-                        "body": (
-                            "## Overview\n\n"
-                            "Trigonometric functions relate angles to ratios of sides "
-                            "in right triangles and to coordinates on the unit circle.\n"
-                        ),
+                        "blurb": "Study angles, the unit circle, identities, and graphs of trig functions.",
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "Trigonometric functions relate angles to ratios of sides "
+                                            "in right triangles and to coordinates on the unit circle."
+                                        ),
+                                        "entries": [
+                                            {"term": "Unit circle", "definition": "Circle of radius 1 centered at the origin; (cos θ, sin θ) gives any point."},
+                                            {"term": "Radian", "definition": "Angle measure where one full revolution equals 2π radians."},
+                                            {"term": "Period", "definition": "The horizontal length over which a trig function repeats."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Pythagorean Identity", "formula": "sin²θ + cos²θ = 1", "note": "Foundation of all trig identities"},
+                                            {"title": "Reciprocal Identities", "formula": "cscθ = 1/sinθ", "note": "sec = 1/cos, cot = 1/tan"},
+                                            {"title": "Law of Sines", "formula": "a/sin A = b/sin B = c/sin C", "note": "Any triangle"},
+                                            {"title": "Law of Cosines", "formula": "c² = a² + b² − 2ab·cos C", "note": "Extends Pythagoras"},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "common-mistakes",
+                                "title": "Common Mistakes",
+                                "icon": "alert",
+                                "blocks": [
+                                    {
+                                        "type": "mistakes",
+                                        "entries": [
+                                            {"mistake": "Mixing degrees and radians", "fix": "Set your calculator mode before evaluating; π only makes sense in radian mode."},
+                                            {"mistake": "Forgetting reference angles", "fix": "Sketch the angle in standard position to find the right sign in each quadrant."},
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                 },
                 "practice_problems": {
@@ -190,7 +456,43 @@ SUBJECTS = {
                     "limits-and-continuity": {
                         "title": "Limits and Continuity",
                         "blurb": "Foundational concepts for calculus.",
-                        "body": "## Overview\n\nA limit describes the value a function approaches as the input approaches some value.\n",
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "A limit describes the value a function approaches as "
+                                            "the input approaches some value, even if the function "
+                                            "is undefined there."
+                                        ),
+                                        "entries": [
+                                            {"term": "Limit", "definition": "lim x→a f(x) = L means f(x) approaches L as x approaches a."},
+                                            {"term": "One-sided limit", "definition": "The value approached from either the left (x → a⁻) or right (x → a⁺)."},
+                                            {"term": "Continuity at a", "definition": "f is continuous at a if lim x→a f(x) = f(a)."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Sum Rule", "formula": "lim (f + g) = lim f + lim g", "note": "When both limits exist"},
+                                            {"title": "Product Rule", "formula": "lim (f·g) = (lim f)(lim g)", "note": "Distributes over multiplication"},
+                                            {"title": "Squeeze Theorem", "formula": "g ≤ f ≤ h ⇒ lim f = L", "note": "If lim g = lim h = L"},
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                 },
                 "practice_problems": {}, "videos": {}, "tools": {},
@@ -212,7 +514,57 @@ SUBJECTS = {
                     "newtons-laws-of-motion": {
                         "title": "Newton's Laws of Motion",
                         "blurb": "The three laws that govern classical mechanics.",
-                        "body": "## Newton's Three Laws\n\n1. An object in motion stays in motion unless acted on by a net force.\n2. F = ma.\n3. For every action there is an equal and opposite reaction.\n",
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "Newton's three laws together describe how forces "
+                                            "affect the motion of everyday objects."
+                                        ),
+                                        "entries": [
+                                            {"term": "First law (inertia)", "definition": "An object at rest stays at rest, and an object in motion stays in motion, unless acted on by a net external force."},
+                                            {"term": "Second law", "definition": "Net force equals mass times acceleration: F = ma."},
+                                            {"term": "Third law", "definition": "For every action there is an equal and opposite reaction."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Second Law", "formula": "F = m·a", "note": "Newtons = kg·m/s²"},
+                                            {"title": "Weight", "formula": "W = m·g", "note": "g ≈ 9.81 m/s² on Earth"},
+                                            {"title": "Friction", "formula": "f = μ·N", "note": "μ = coefficient of friction"},
+                                            {"title": "Momentum", "formula": "p = m·v", "note": "Vector quantity"},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "common-mistakes",
+                                "title": "Common Mistakes",
+                                "icon": "alert",
+                                "blocks": [
+                                    {
+                                        "type": "mistakes",
+                                        "entries": [
+                                            {"mistake": "Treating mass and weight as the same thing", "fix": "Mass is in kg and is invariant; weight is a force in newtons and depends on g."},
+                                            {"mistake": "Using F = ma with a non-net force", "fix": "Sum all forces on the object first; only the net force equals ma."},
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                 },
                 "practice_problems": {}, "videos": {}, "tools": {},
@@ -295,7 +647,44 @@ SUBJECTS = {
                     "organic-chemistry-basics": {
                         "title": "Organic Chemistry Basics",
                         "blurb": "Functional groups, nomenclature, and core reactions.",
-                        "body": "## Overview\n\nOrganic chemistry studies carbon compounds and their transformations.\n",
+                        "sections": [
+                            {
+                                "id": "key-concepts",
+                                "title": "Key Concepts",
+                                "icon": "bulb",
+                                "blocks": [
+                                    {
+                                        "type": "definitions",
+                                        "intro": (
+                                            "Organic chemistry studies carbon compounds and their "
+                                            "transformations. Recognizing functional groups is the "
+                                            "first step in predicting reactivity."
+                                        ),
+                                        "entries": [
+                                            {"term": "Hydrocarbon", "definition": "A compound containing only carbon and hydrogen."},
+                                            {"term": "Functional group", "definition": "An atom or group of atoms that defines the reactivity of a molecule."},
+                                            {"term": "Isomers", "definition": "Compounds with the same molecular formula but different structures."},
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                "id": "important-formulas",
+                                "title": "Important Formulas",
+                                "icon": "calc",
+                                "blocks": [
+                                    {
+                                        "type": "formula_cards",
+                                        "cards": [
+                                            {"title": "Alkane", "formula": "CₙH₂ₙ₊₂", "note": "Single bonds only"},
+                                            {"title": "Alkene", "formula": "CₙH₂ₙ", "note": "One C=C double bond"},
+                                            {"title": "Alkyne", "formula": "CₙH₂ₙ₋₂", "note": "One C≡C triple bond"},
+                                            {"title": "Alcohol", "formula": "R−OH", "note": "Hydroxyl functional group"},
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     },
                 },
                 "practice_problems": {}, "videos": {}, "tools": {},

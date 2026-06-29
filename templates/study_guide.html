@@ -10,31 +10,157 @@
   <span>{{ item.title }}</span>
 </nav>
 
-<div class="container layout-with-sidebar">
-  <aside class="sidebar">
-    <h4>Table of Contents</h4>
-    <ul class="side-nav">
-      <li><a href="#top" class="active">Overview</a></li>
-      <li><a href="#key-concepts">Key Concepts</a></li>
-      <li><a href="#important-formulas">Important Formulas</a></li>
-      <li><a href="#transformation-rules">Transformation Rules</a></li>
+<div class="container sg-layout">
+  <aside class="sg-sidebar" aria-label="Table of contents">
+    <h4 class="sg-toc-title">Table of Contents</h4>
+    <ul class="sg-toc">
+      <li>
+        <a href="#top" class="active">
+          <span class="sg-toc-icon">{% include 'includes/icons/sg/home.html' ignore missing %}</span>
+          <span>Overview</span>
+        </a>
+      </li>
+      {% for sec in item.sections %}
+      <li>
+        <a href="#{{ sec.id }}">
+          <span class="sg-toc-icon">{% include 'includes/icons/sg/' + (sec.icon or 'book') + '.html' ignore missing %}</span>
+          <span>{{ loop.index }}. {{ sec.title }}</span>
+        </a>
+      </li>
+      {% endfor %}
     </ul>
+    {% if item.pdf_url %}
+    <a class="sg-download" href="{{ item.pdf_url }}">
+      <span class="sg-toc-icon">{% include 'includes/icons/sg/download.html' ignore missing %}</span>
+      <span>Download PDF</span>
+    </a>
+    {% endif %}
   </aside>
 
-  <article class="study-guide">
-    <div class="article-header">
-      <span class="pill">{{ topic.name|upper }}</span>
-      <div class="article-actions">
-        <button class="btn-ghost" type="button">Save</button>
-        <button class="btn-ghost" type="button">Share</button>
+  <article class="sg-article">
+    <header class="sg-article-header">
+      <span class="sg-pill">{{ topic.name|upper }}</span>
+      <div class="sg-actions">
+        <button class="btn-ghost sg-action" type="button">
+          {% include 'includes/icons/sg/bookmark.html' ignore missing %} Save
+        </button>
+        <button class="btn-ghost sg-action" type="button">
+          {% include 'includes/icons/sg/share.html' ignore missing %} Share
+        </button>
       </div>
-    </div>
-    <h1 id="top">{{ item.title }} Study Guide</h1>
-    <p class="lead muted">{{ item.blurb }}</p>
+    </header>
 
-    <div class="prose">
-      {{ item.body|markdown|safe }}
-    </div>
+    <h1 id="top" class="sg-title">{{ item.title }} Study Guide</h1>
+    {% if item.blurb %}<p class="sg-lead">{{ item.blurb }}</p>{% endif %}
+
+    {% if item.sections %}
+      {% for sec in item.sections %}
+        <section id="{{ sec.id }}" class="sg-section">
+          <header class="sg-section-header">
+            <h2>{{ loop.index }}. {{ sec.title }}</h2>
+          </header>
+          {% for block in sec.blocks %}
+            {% if block.type == 'paragraph' %}
+              <p class="sg-paragraph">{{ block.text }}</p>
+
+            {% elif block.type == 'definitions' %}
+              {% if block.intro %}<p class="sg-paragraph">{{ block.intro }}</p>{% endif %}
+              <ul class="sg-definitions">
+                {% for entry in block.entries %}
+                <li><strong>{{ entry.term }}:</strong> {{ entry.definition }}</li>
+                {% endfor %}
+              </ul>
+
+            {% elif block.type == 'formula_cards' %}
+              <div class="sg-formula-grid">
+                {% for card in block.cards %}
+                <div class="sg-formula-card">
+                  <h4>{{ card.title }}</h4>
+                  <div class="sg-formula">{{ card.formula }}</div>
+                  {% if card.note %}<p class="sg-formula-note">{{ card.note }}</p>{% endif %}
+                </div>
+                {% endfor %}
+              </div>
+
+            {% elif block.type == 'table' %}
+              <div class="sg-table-wrap">
+                <table class="sg-table">
+                  <thead>
+                    <tr>{% for h in block.headers %}<th>{{ h }}</th>{% endfor %}</tr>
+                  </thead>
+                  <tbody>
+                    {% for row in block.rows %}
+                    <tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+            {% elif block.type == 'steps' %}
+              <ol class="sg-steps">
+                {% for step in block.entries %}
+                <li>
+                  <strong>{{ step.title }}</strong>
+                  {% if step.detail %}<span class="sg-step-detail">{{ step.detail }}</span>{% endif %}
+                </li>
+                {% endfor %}
+              </ol>
+
+            {% elif block.type == 'examples' %}
+              <div class="sg-examples">
+                {% for ex in block.entries %}
+                <div class="sg-example">
+                  <h4>{{ ex.title }}</h4>
+                  {% if ex.prompt %}<p class="sg-example-prompt">{{ ex.prompt }}</p>{% endif %}
+                  {% if ex.solution %}<p class="sg-example-solution"><strong>Solution:</strong> {{ ex.solution }}</p>{% endif %}
+                </div>
+                {% endfor %}
+              </div>
+
+            {% elif block.type == 'practice' %}
+              <ol class="sg-practice">
+                {% for p in block.entries %}
+                <li>
+                  <p class="sg-practice-q">{{ p.question }}</p>
+                  {% if p.solution %}
+                  <details>
+                    <summary>Show solution</summary>
+                    <p class="sg-practice-a">{{ p.solution }}</p>
+                  </details>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ol>
+
+            {% elif block.type == 'mistakes' %}
+              <ul class="sg-mistakes">
+                {% for m in block.entries %}
+                <li>
+                  <strong>{{ m.mistake }}</strong>
+                  {% if m.fix %}<span class="sg-mistake-fix">{{ m.fix }}</span>{% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+
+            {% elif block.type == 'review' %}
+              <ul class="sg-review">
+                {% for r in block.entries %}<li>{{ r }}</li>{% endfor %}
+              </ul>
+
+            {% elif block.type == 'note' %}
+              <aside class="sg-note">{{ block.text }}</aside>
+
+            {% endif %}
+          {% endfor %}
+        </section>
+      {% endfor %}
+    {% elif item.body %}
+      <section class="sg-section">
+        <div class="prose">
+          {{ item.body|markdown|safe }}
+        </div>
+      </section>
+    {% endif %}
   </article>
 </div>
 {% endblock %}
